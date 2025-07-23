@@ -7,13 +7,14 @@ require('dotenv').config();
 const app = express();
 app.use(cors({
     origin: [
-        'http://localhost:5000',
-        'https://test-frontend-self-three.vercel.app/'
+        'http://localhost:3000', 
+        'https://test-frontend-self-three.vercel.app'  
     ]
 }));
+
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err));
 
